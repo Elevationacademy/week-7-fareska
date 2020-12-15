@@ -1,5 +1,5 @@
 //////////////////////////Big O - Time Complexity (JS)//////////////////////////
-//////////////Exercise 1
+/*/////////////Exercise 1
 const getBalance = function (bankOperations) {
     let balance = 0
     for (let op of bankOperations) {
@@ -85,7 +85,66 @@ const getDistributions = function (studentAnswers) {
     }
     
     getDistributions(studentAnswers)
-    //O(3*3) / O(n^2)
+    //O(nm)
     
     
 //////////////Exercise 5
+const sendEmails = (email, recepients) => recepients.forEach(r => r.sendEmail(email))
+
+const emailManager = function () {
+    let email = generateEmail()
+    
+    $.get('/recepients', function (recepients) {
+        sendEmails(email, recepients)
+    })
+}
+// O(n)
+*/
+
+//////////////Exercise 6
+const findDuplicates = function (ages) {
+    // elevation answer 
+    // let obj = {}
+
+
+    // for (let i = 0; i < arr.length; i++) {
+    //     if(obj[arr[i]]) {
+    //         obj[arr[i]]++
+    //     } else {
+    //         obj[arr[i]] = 1
+    //     }
+    // }
+
+
+    // Object.keys(obj).forEach(k => {
+    //     if(obj[k] > 1) {
+    //         console.log("There is a duplicate")
+    //     }
+    // })
+
+    
+    //my answer
+    let obj = {}
+    ages.forEach(age=> {
+        let a = `_${age}`
+        if(obj[a]){
+            return console.log(`there is a duplicate, Check ${age}`)
+        }else{
+            obj[a] = true
+        }
+    })
+
+    // for (let i = 0; i < ages.length; i++) {
+
+    //     for (let j = i + 1; j < ages.length; j++) {
+    //         if (ages[i] === ages[j]) {
+    //             console.log(`${ages[i]} has a duplicate`)
+    //         }
+    //     }
+    //     //note that this *entire* inner loop runs for each iteration of i
+    // }
+}
+
+let ages = [1, 2, 3, -1, 5, 6, -1]
+
+findDuplicates(ages)
